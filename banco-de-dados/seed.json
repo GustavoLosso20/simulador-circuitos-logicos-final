@@ -1,0 +1,263 @@
+[
+  {
+    "name": "Meio somador",
+    "nodes": [
+      {
+        "id": "a",
+        "type": "INPUT",
+        "x": 60,
+        "y": 80,
+        "label": "A"
+      },
+      {
+        "id": "b",
+        "type": "INPUT",
+        "x": 60,
+        "y": 180,
+        "label": "B"
+      },
+      {
+        "id": "x",
+        "type": "XOR",
+        "x": 260,
+        "y": 60
+      },
+      {
+        "id": "n",
+        "type": "AND",
+        "x": 260,
+        "y": 180
+      },
+      {
+        "id": "s",
+        "type": "OUTPUT",
+        "x": 460,
+        "y": 70,
+        "label": "Soma"
+      },
+      {
+        "id": "c",
+        "type": "OUTPUT",
+        "x": 460,
+        "y": 190,
+        "label": "Carry"
+      }
+    ],
+    "wires": [
+      {
+        "fromNode": "a",
+        "fromPin": 0,
+        "toNode": "x",
+        "toPin": 0
+      },
+      {
+        "fromNode": "b",
+        "fromPin": 0,
+        "toNode": "x",
+        "toPin": 1
+      },
+      {
+        "fromNode": "a",
+        "fromPin": 0,
+        "toNode": "n",
+        "toPin": 0
+      },
+      {
+        "fromNode": "b",
+        "fromPin": 0,
+        "toNode": "n",
+        "toPin": 1
+      },
+      {
+        "fromNode": "x",
+        "fromPin": 0,
+        "toNode": "s",
+        "toPin": 0
+      },
+      {
+        "fromNode": "n",
+        "fromPin": 0,
+        "toNode": "c",
+        "toPin": 0
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-11-25T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-11-25T12:00:00.000Z"
+    }
+  },
+  {
+    "name": "Latch SR (NOR)",
+    "nodes": [
+      {
+        "id": "r",
+        "type": "INPUT",
+        "x": 60,
+        "y": 60,
+        "label": "R"
+      },
+      {
+        "id": "s",
+        "type": "INPUT",
+        "x": 60,
+        "y": 200,
+        "label": "S"
+      },
+      {
+        "id": "n1",
+        "type": "NOR",
+        "x": 280,
+        "y": 60
+      },
+      {
+        "id": "n2",
+        "type": "NOR",
+        "x": 280,
+        "y": 200
+      },
+      {
+        "id": "q",
+        "type": "OUTPUT",
+        "x": 480,
+        "y": 70,
+        "label": "Q"
+      },
+      {
+        "id": "qn",
+        "type": "OUTPUT",
+        "x": 480,
+        "y": 210,
+        "label": "Q̅"
+      }
+    ],
+    "wires": [
+      {
+        "fromNode": "r",
+        "fromPin": 0,
+        "toNode": "n1",
+        "toPin": 0
+      },
+      {
+        "fromNode": "n2",
+        "fromPin": 0,
+        "toNode": "n1",
+        "toPin": 1
+      },
+      {
+        "fromNode": "s",
+        "fromPin": 0,
+        "toNode": "n2",
+        "toPin": 0
+      },
+      {
+        "fromNode": "n1",
+        "fromPin": 0,
+        "toNode": "n2",
+        "toPin": 1
+      },
+      {
+        "fromNode": "n1",
+        "fromPin": 0,
+        "toNode": "q",
+        "toPin": 0
+      },
+      {
+        "fromNode": "n2",
+        "fromPin": 0,
+        "toNode": "qn",
+        "toPin": 0
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-11-25T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-11-25T12:00:00.000Z"
+    }
+  },
+  {
+    "name": "Contador assíncrono de 2 bits",
+    "nodes": [
+      {
+        "id": "clk",
+        "type": "CLOCK",
+        "x": 40,
+        "y": 110,
+        "label": "CLK",
+        "period": 1600
+      },
+      {
+        "id": "f0",
+        "type": "DFF",
+        "x": 200,
+        "y": 80
+      },
+      {
+        "id": "f1",
+        "type": "DFF",
+        "x": 420,
+        "y": 80
+      },
+      {
+        "id": "q0",
+        "type": "OUTPUT",
+        "x": 210,
+        "y": 230,
+        "label": "Q0"
+      },
+      {
+        "id": "q1",
+        "type": "OUTPUT",
+        "x": 430,
+        "y": 230,
+        "label": "Q1"
+      }
+    ],
+    "wires": [
+      {
+        "fromNode": "clk",
+        "fromPin": 0,
+        "toNode": "f0",
+        "toPin": 1
+      },
+      {
+        "fromNode": "f0",
+        "fromPin": 1,
+        "toNode": "f0",
+        "toPin": 0
+      },
+      {
+        "fromNode": "f0",
+        "fromPin": 1,
+        "toNode": "f1",
+        "toPin": 1
+      },
+      {
+        "fromNode": "f1",
+        "fromPin": 1,
+        "toNode": "f1",
+        "toPin": 0
+      },
+      {
+        "fromNode": "f0",
+        "fromPin": 0,
+        "toNode": "q0",
+        "toPin": 0
+      },
+      {
+        "fromNode": "f1",
+        "fromPin": 0,
+        "toNode": "q1",
+        "toPin": 0
+      }
+    ],
+    "createdAt": {
+      "$date": "2026-11-25T12:00:00.000Z"
+    },
+    "updatedAt": {
+      "$date": "2026-11-25T12:00:00.000Z"
+    }
+  }
+]

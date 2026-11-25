@@ -1,0 +1,20 @@
+ENTREGA — Simulador Virtual de Circuitos Digitais e Registro de Eventos
+Integrantes: Gustavo Afonso Losso e João Paulo Guinancio Ferreira
+Turma: [FEAU-8UNA]    Professor(a): [Hélio]    Univap, [nov/2026]
+
+CONTEÚDO DO ZIP
+codigo-fonte/    Projeto completo (cliente, servidor e motor), README.md e .env.example
+banco-de-dados/  Esquema, dados de exemplo, diagrama, backup e instruções de restauração
+referencias/     Referências ABNT e links consultados
+documentacao/    Relatório final (artigo) e manual de uso
+
+COMO COMEÇAR
+1. Leia codigo-fonte/README.md (instalação e execução).
+2. Para o banco (MongoDB), leia banco-de-dados/instrucoes-banco.md.
+
+REPOSITÓRIO GIT
+[link do GitHub]  (público ou com acesso concedido ao professor)
+
+OBSERVAÇÃO
+O banco é MongoDB (NoSQL); por isso o esquema é um documento (schema.md), e não um schema.sql.
+O arquivo .env real NÃO foi incluído, apenas o .env.example.
